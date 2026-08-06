@@ -6,7 +6,7 @@ namespace BiSoft.CarteleraPeliculas.Domain.Entities
 {
     public class Pelicula
     {
-        Guid Id { get; }
+        public Guid Id { get; }
         public string titulo { get; private set; }
         public int release_year { get; private set; }
         public string genero { get; private set; }
