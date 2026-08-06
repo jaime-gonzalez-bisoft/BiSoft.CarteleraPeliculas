@@ -59,7 +59,7 @@ namespace BiSoft.CarteleraPeliculas.Domain.Entities
             this.sinopsis = sinopsis;
             this.IsDeleted = false;
         }
-        // Metodos para Soft Delete
+
         public void Eliminar()
         {
             IsDeleted = true;

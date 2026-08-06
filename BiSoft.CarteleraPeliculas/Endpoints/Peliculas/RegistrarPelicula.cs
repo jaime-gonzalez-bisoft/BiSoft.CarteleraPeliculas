@@ -1,7 +1,7 @@
-﻿using BiSoft.CarteleraPeliculasApi.DTOs.Pelicula;
+﻿using BiSoft.CarteleraPeliculas.Api.DTOs.Pelicula;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bisoft.CarteleraPeliculasApi
+namespace BiSoft.CarteleraPeliculas.Api.Endpoints.Peliculas
 {
     public static class RegistrarPelicula
     {
