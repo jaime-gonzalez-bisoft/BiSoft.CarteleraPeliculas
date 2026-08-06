@@ -40,7 +40,16 @@ namespace BiSoft.CarteleraPeliculas.Application.Services
                 pelicula.titulo,
                 pelicula.genero);
 
-            return pelicula.Adapt<RegistrarPeliculaResponse>();
+            return new RegistrarPeliculaResponse
+            {
+                Id = pelicula.Id,
+                Titulo = pelicula.titulo,
+                ReleaseYear = pelicula.release_year,
+                Genero = pelicula.genero,
+                PosterUrl = pelicula.poster_url,
+                ImdbRating = pelicula.imdb_rating,
+                Sinopsis = pelicula.sinopsis
+            };
         }
 
         public async Task<ActualizarPeliculaResponse> ActualizarPelicula(
@@ -65,7 +74,17 @@ namespace BiSoft.CarteleraPeliculas.Application.Services
                 "Película actualizada con id {PeliculaId}",
                 peliculaId);
 
-            return pelicula.Adapt<ActualizarPeliculaResponse>();
+            return new ActualizarPeliculaResponse
+            {
+                Id = pelicula.Id,
+                Titulo = pelicula.titulo,
+                ReleaseYear = pelicula.release_year,
+                Genero = pelicula.genero,
+                PosterUrl = pelicula.poster_url,
+                ImdbRating = pelicula.imdb_rating,
+                Sinopsis = pelicula.sinopsis,
+                Status = pelicula.IsDeleted ? 1 : 0
+            };
         }
 
         public async Task<ConsultarPeliculaResponse> ConsultarPelicula(Guid peliculaId)
@@ -76,7 +95,17 @@ namespace BiSoft.CarteleraPeliculas.Application.Services
                 "Película obtenida con id {PeliculaId}",
                 peliculaId);
 
-            return pelicula.Adapt<ConsultarPeliculaResponse>();
+            return new ConsultarPeliculaResponse
+            {
+                Id = pelicula.Id,
+                Titulo = pelicula.titulo,
+                ReleaseYear = pelicula.release_year,
+                Genero = pelicula.genero,
+                PosterUrl = pelicula.poster_url,
+                ImdbRating = pelicula.imdb_rating,
+                Sinopsis = pelicula.sinopsis,
+                Status = pelicula.IsDeleted ? 1 : 0
+            };
         }
 
         public IQueryable<Pelicula> ConsultarPeliculas()
@@ -98,7 +127,17 @@ namespace BiSoft.CarteleraPeliculas.Application.Services
                 "Película eliminada con id {PeliculaId}",
                 peliculaId);
 
-            return pelicula.Adapt<EliminarPeliculaResponse>();
+            return new EliminarPeliculaResponse
+            {
+                Id = pelicula.Id,
+                Titulo = pelicula.titulo,
+                ReleaseYear = pelicula.release_year,
+                Genero = pelicula.genero,
+                PosterUrl = pelicula.poster_url,
+                ImdbRating = pelicula.imdb_rating,
+                Sinopsis = pelicula.sinopsis,
+                Status = 1
+            };
         }
 
         public async Task<RestaurarPeliculaResponse> RestaurarPelicula(Guid peliculaId)

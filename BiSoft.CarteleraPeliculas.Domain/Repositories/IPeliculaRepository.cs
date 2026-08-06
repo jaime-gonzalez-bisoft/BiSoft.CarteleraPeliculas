@@ -13,7 +13,7 @@ namespace BiSoft.CarteleraPeliculas.Domain.Repositories
         Task<Pelicula> ObtenerPelicula(Guid peliculaId);
         IQueryable<Pelicula> ConsultarPelicula();
         Task<List<Pelicula>> ObtenerPeliculasEliminadas();
-        Task RestaurarPelicula(Pelicula pelicula);
         Task EliminarPelicula(Pelicula pelicula);
+        Task RestaurarPelicula(Pelicula pelicula);
     }
 }

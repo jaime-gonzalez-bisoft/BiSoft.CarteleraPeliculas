@@ -1,6 +1,6 @@
 ﻿using BiSoft.CarteleraPeliculas.Api.DTOs.Pelicula;
-using BiSoft.CarteleraPeliculas.Appication.DTOs;
-using BiSoft.CarteleraPeliculas.Appication.Services;
+using BiSoft.CarteleraPeliculas.Application.DTOs;
+using BiSoft.CarteleraPeliculas.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BiSoft.CarteleraPeliculas.Api.Endpoints.Peliculas
@@ -23,7 +23,7 @@ namespace BiSoft.CarteleraPeliculas.Api.Endpoints.Peliculas
                     ImdbRating = pelicula.ImdbRating,
                     Sinopsis = pelicula.Sinopsis
                 };
-                return Results.Created($"/api/projects/{pelicula.Id}", response);
+                return Results.Created($"/api/movies/{pelicula.Id}", response);
             })
             .Produces<RegistrarPeliculaResponse>(StatusCodes.Status201Created)
             .WithDescription("Registra una nueva pelicula en el sistema.")

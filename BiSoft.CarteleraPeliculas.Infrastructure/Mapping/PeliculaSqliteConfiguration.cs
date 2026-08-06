@@ -15,7 +15,7 @@ public class PeliculaSqliteConfiguration
 
         builder.Property(pelicula => pelicula.Id)
             .HasColumnName("PeliculaId")
-            .ValueGeneratedOnAdd();
+            .HasConversion<string>();
 
         builder.Property(pelicula => pelicula.titulo)
             .HasColumnName("Titulo")
