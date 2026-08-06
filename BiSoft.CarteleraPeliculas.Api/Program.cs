@@ -23,8 +23,11 @@ builder.Services.AddScoped<PeliculaDomainService>();
 
 // Capa Infrastructure
 builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>();
+builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 var app = builder.Build();
+app.UseExceptionHandler();
 
 using (var scope = app.Services.CreateScope())
 {
