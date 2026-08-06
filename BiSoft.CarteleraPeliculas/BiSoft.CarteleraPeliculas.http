@@ -1,6 +1,0 @@
-@BiSoft.CarteleraPeliculas_HostAddress = http://localhost:5095
-
-GET {{BiSoft.CarteleraPeliculas_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
