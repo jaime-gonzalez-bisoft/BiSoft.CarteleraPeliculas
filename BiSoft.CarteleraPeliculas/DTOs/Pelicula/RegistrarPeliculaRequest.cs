@@ -1,4 +1,4 @@
-﻿namespace BiSoft.CarteleraPeliculasApi.DTOs.Pelicula
+﻿namespace BiSoft.CarteleraPeliculas.Api.DTOs.Pelicula
 {
     public class RegistrarPeliculaRequest
     {
