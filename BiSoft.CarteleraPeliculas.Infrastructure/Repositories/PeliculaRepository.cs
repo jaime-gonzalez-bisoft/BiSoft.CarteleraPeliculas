@@ -1,5 +1,5 @@
-﻿using CarteleraPeliculas.Domain.Entities;
-using CarteleraPeliculas.Domain.Repositories;
+﻿using BiSoft.CarteleraPeliculas.Domain.Entities;
+using BiSoft.CarteleraPeliculas.Domain.Repositories;
 using CarteleraPeliculas.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 

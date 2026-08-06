@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BiSoft.CarteleraPeliculas.Appication.DTOs
+﻿namespace BiSoft.CarteleraPeliculas.Application.DTOs
 {
     public class ConsultarPeliculaResponse
     {

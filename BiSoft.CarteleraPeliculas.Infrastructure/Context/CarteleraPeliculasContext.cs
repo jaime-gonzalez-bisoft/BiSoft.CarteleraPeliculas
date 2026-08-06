@@ -1,7 +1,6 @@
-﻿using CarteleraPeliculas.Domain.Entities;
+﻿using BiSoft.CarteleraPeliculas.Domain.Entities;
 using CarteleraPeliculas.Infrastructure.Helpers;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 
 namespace CarteleraPeliculas.Infrastructure.Contexts;
 
