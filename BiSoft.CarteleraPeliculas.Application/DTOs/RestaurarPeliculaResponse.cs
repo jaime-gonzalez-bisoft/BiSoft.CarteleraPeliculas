@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BiSoft.CarteleraPeliculas.Aplicacion.DTOs.Pelicula
+﻿namespace BiSoft.CarteleraPeliculas.Application.DTOs
 {
     public class RestaurarPeliculaResponse
     {

@@ -1,8 +1,8 @@
-﻿using CarteleraPeliculas.Domain.Entities;
+﻿using BiSoft.CarteleraPeliculas.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CarteleraPeliculas.Infrastructure.Mapping.PostgreSql;
+namespace BiSoft.CarteleraPeliculas.Infrastructure.Mapping.PostgreSql;
 
 public class PeliculaPostgreSqlConfiguration
     : IEntityTypeConfiguration<Pelicula>

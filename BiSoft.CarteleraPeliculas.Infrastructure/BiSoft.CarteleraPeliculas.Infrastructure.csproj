@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BiSoft.CarteleraPeliculas.Domain\BiSoft.CarteleraPeliculas.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

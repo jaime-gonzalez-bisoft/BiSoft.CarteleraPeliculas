@@ -1,15 +1,10 @@
-﻿using BiSoft.CarteleraPeliculas.Aplicacion.DTOs.Pelicula;
+﻿using BiSoft.CarteleraPeliculas.Application.DTOs;
 using BiSoft.CarteleraPeliculas.Domain.Entities;
 using BiSoft.CarteleraPeliculas.Domain.Services;
 using Mapster;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BiSoft.CarteleraPeliculas.Aplicacion.Services
+namespace BiSoft.CarteleraPeliculas.Application.Services
 {
     public class PeliculaService
     {
