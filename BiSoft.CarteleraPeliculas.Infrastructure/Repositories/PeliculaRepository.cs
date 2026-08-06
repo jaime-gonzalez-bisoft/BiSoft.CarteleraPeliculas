@@ -20,14 +20,16 @@ public class PeliculaRepository : IPeliculaRepository
 
     public IQueryable<Pelicula> ConsultarPelicula()
     {
-        return _context.Peliculas.AsNoTracking();
+        return _context.Peliculas
+            .Where(p => !p.IsDeleted)
+            .AsNoTracking();
     }
 
     public async Task<Pelicula> ObtenerPelicula(Guid peliculaId)
     {
         var pelicula = await _context.Peliculas
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Id == peliculaId);
+            .FirstOrDefaultAsync(p => p.Id == peliculaId && !p.IsDeleted);
 
         if (pelicula is null)
             throw new KeyNotFoundException($"Pelicula con id '{peliculaId}' no encontrada.");
@@ -47,15 +49,17 @@ public class PeliculaRepository : IPeliculaRepository
         return Task.CompletedTask;
     }
 
-    public Task EliminarPelicula(Pelicula pelicula)
-    {
-        _context.Peliculas.Remove(pelicula);
-        return Task.CompletedTask;
-    }
-
     public async Task GuardarCambios()
     {
-        await _context.SaveChangesAsync();
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException ex)
+        {
+            Console.WriteLine(ex.InnerException?.Message);
+            throw;
+        }
     }
 
     public async Task<List<Pelicula>> ObtenerPeliculasEliminadas()
@@ -64,5 +68,14 @@ public class PeliculaRepository : IPeliculaRepository
             .AsNoTracking()
             .Where(p => p.IsDeleted)
             .ToListAsync();
+    }
+
+    public Task EliminarPelicula(Pelicula pelicula)
+    {
+        pelicula.Eliminar();
+
+        _context.Peliculas.Update(pelicula);
+
+        return Task.CompletedTask;
     }
 }

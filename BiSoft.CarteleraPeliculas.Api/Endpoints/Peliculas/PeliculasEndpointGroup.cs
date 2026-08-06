@@ -12,6 +12,9 @@
         private static RouteGroupBuilder MapEndpoints(this RouteGroupBuilder group)
         {
             group.MapRegistrarPelicula();
+            group.MapConsultarPeliculas();
+            group.MapConsultarPelicula();
+            group.MapEliminarPelicula();
             return group;
         }
     }

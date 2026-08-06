@@ -106,10 +106,11 @@ namespace BiSoft.CarteleraPeliculas.Domain.Services
             var pelicula = await ObtenerPelicula(peliculaId);
 
             await _peliculaRepository.EliminarPelicula(pelicula);
+
             await _peliculaRepository.GuardarCambios();
 
             _logger.LogInformation(
-                "Película eliminada: {PeliculaId}",
+                "Película eliminada lógicamente: {PeliculaId}",
                 peliculaId);
         }
 
