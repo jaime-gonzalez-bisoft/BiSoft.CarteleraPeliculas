@@ -25,10 +25,10 @@ public class PeliculaRepository : IPeliculaRepository
             .AsNoTracking();
     }
 
+    // <-- quitar AsNoTracking() aquí para que la entidad sea tracked
     public async Task<Pelicula> ObtenerPelicula(Guid peliculaId)
     {
         var pelicula = await _context.Peliculas
-            .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == peliculaId && !p.IsDeleted);
 
         if (pelicula is null)
