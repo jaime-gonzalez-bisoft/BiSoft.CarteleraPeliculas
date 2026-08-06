@@ -1,4 +1,4 @@
-﻿using BiSoft.CarteleraPeliculas.Aplicacion.DTOs.Pelicula;
+﻿using BiSoft.CarteleraPeliculas.Appication.DTOs;
 using BiSoft.CarteleraPeliculas.Domain.Entities;
 using BiSoft.CarteleraPeliculas.Domain.Services;
 using Mapster;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BiSoft.CarteleraPeliculas.Aplicacion.Services
+namespace BiSoft.CarteleraPeliculas.Appication.Services
 {
     public class PeliculaService
     {
