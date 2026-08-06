@@ -1,4 +1,4 @@
 <Solution>
   <Project Path="BiSoft.CarteleraPeliculas.Domain/BiSoft.CarteleraPeliculas.Domain.csproj" Id="322238e0-ffcd-4e2c-82d6-84adb6708920" />
-  <Project Path="BiSoft.CarteleraPeliculas/BiSoft.CarteleraPeliculas.Api.csproj" Id="86a3725e-8678-9fc7-5f61-55171e808072" />
+  <Project Path="BiSoft.CarteleraPeliculas.Api/BiSoft.CarteleraPeliculas.Api.csproj" Id="86a3725e-8678-9fc7-5f61-55171e808072" />
 </Solution>
