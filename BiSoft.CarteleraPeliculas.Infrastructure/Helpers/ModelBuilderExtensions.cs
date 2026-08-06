@@ -1,4 +1,4 @@
-﻿using CarteleraPeliculas.Infrastructure.Mapping.PostgreSql;
+﻿using CarteleraPeliculas.Infrastructure.Mapping.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarteleraPeliculas.Infrastructure.Helpers;
@@ -9,6 +9,6 @@ public static class ModelBuilderExtensions
         this ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(
-            new PeliculaPostgreSqlConfiguration());
+            new PeliculaSqliteConfiguration());
     }
 }
