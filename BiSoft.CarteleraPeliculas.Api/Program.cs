@@ -26,6 +26,9 @@ builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>();
 builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
 builder.Services.AddProblemDetails();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 app.UseExceptionHandler();
 
@@ -39,6 +42,10 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "CarteleraPeliculas API v1");
+    });
 }
 
 app.UseHttpsRedirection();
