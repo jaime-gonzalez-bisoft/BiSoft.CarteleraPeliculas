@@ -15,6 +15,10 @@
             group.MapConsultarPeliculas();
             group.MapConsultarPelicula();
             group.MapEliminarPelicula();
+
+            // Registrar endpoints de actualización (PUT que actúan como PATCH)
+            group.MapActualizarPelicula();
+
             return group;
         }
     }
