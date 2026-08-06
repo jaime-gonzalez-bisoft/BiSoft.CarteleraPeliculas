@@ -1,4 +1,6 @@
 ﻿using BiSoft.CarteleraPeliculas.Api.DTOs.Pelicula;
+using BiSoft.CarteleraPeliculas.Appication.DTOs;
+using BiSoft.CarteleraPeliculas.Appication.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BiSoft.CarteleraPeliculas.Api.Endpoints.Peliculas
@@ -13,15 +15,15 @@ namespace BiSoft.CarteleraPeliculas.Api.Endpoints.Peliculas
                 var pelicula = await peliculaService.RegistrarPelicula(request.Titulo, request.Release_year, request.Genero, request.Poster_url, request.Imdb_rating, request.Sinopsis);
                 var response = new RegistrarPeliculaResponse
                 {
-                    ProjectId = pelicula.ProjectId,
+                    Id = pelicula.Id,
                     Titulo = pelicula.Titulo,
-                    Release_year = pelicula.Release_year,
+                    ReleaseYear = pelicula.ReleaseYear,
                     Genero = pelicula.Genero,
-                    Poster_url = pelicula.Poster_url,
-                    Imdb_rating = pelicula.Imdb_rating,
+                    PosterUrl = pelicula.PosterUrl,
+                    ImdbRating = pelicula.ImdbRating,
                     Sinopsis = pelicula.Sinopsis
                 };
-                return Results.Created($"/api/projects/{pelicula.ProjectId}", response);
+                return Results.Created($"/api/projects/{pelicula.Id}", response);
             })
             .Produces<RegistrarPeliculaResponse>(StatusCodes.Status201Created)
             .WithDescription("Registra una nueva pelicula en el sistema.")

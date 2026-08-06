@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BiSoft.CarteleraPeliculas.Application\BiSoft.CarteleraPeliculas.Application.csproj" />
+    <ProjectReference Include="..\BiSoft.CarteleraPeliculas.Infrastructure\BiSoft.CarteleraPeliculas.Infrastructure.csproj" />
     <ProjectReference Include="..\BiSoft.CarteleraPeliculas.Domain\BiSoft.CarteleraPeliculas.Domain.csproj" />
   </ItemGroup>
 
