@@ -1,4 +1,8 @@
-﻿using BiSoft.CarteleraPeliculas.Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BiSoft.CarteleraPeliculas.Domain.Entities;
 using BiSoft.CarteleraPeliculas.Domain.Repositories;
 using CarteleraPeliculas.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -14,44 +18,51 @@ public class PeliculaRepository : IPeliculaRepository
         _context = context;
     }
 
-    public IQueryable<Pelicula> Consultar()
+    public IQueryable<Pelicula> ConsultarPelicula()
     {
-        return _context.Peliculas
-            .AsNoTracking();
+        return _context.Peliculas.AsNoTracking();
     }
 
-    public async Task<Pelicula?> ObtenerPorId(
-        int peliculaId,
-        CancellationToken cancellationToken = default)
+    public async Task<Pelicula> ObtenerPelicula(Guid peliculaId)
     {
-        return await _context.Peliculas
-            .FirstOrDefaultAsync(
-                pelicula => pelicula.Id == peliculaId,
-                cancellationToken);
+        var pelicula = await _context.Peliculas
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.Id == peliculaId);
+
+        if (pelicula is null)
+            throw new KeyNotFoundException($"Pelicula con id '{peliculaId}' no encontrada.");
+
+        return pelicula;
     }
 
-    public async Task Registrar(
-        Pelicula pelicula,
-        CancellationToken cancellationToken = default)
+    public async Task RegistrarPelicula(Pelicula pelicula)
     {
-        await _context.Peliculas.AddAsync(
-            pelicula,
-            cancellationToken);
+        await _context.Peliculas.AddAsync(pelicula);
     }
 
-    public void Actualizar(Pelicula pelicula)
+    public Task RestaurarPelicula(Pelicula pelicula)
     {
+        // Se asume que la entidad ya refleja el estado restaurado o el caller llama a `pelicula.Restaurar()`.
         _context.Peliculas.Update(pelicula);
+        return Task.CompletedTask;
     }
 
-    public void Eliminar(Pelicula pelicula)
+    public Task EliminarPelicula(Pelicula pelicula)
     {
         _context.Peliculas.Remove(pelicula);
+        return Task.CompletedTask;
     }
 
-    public async Task GuardarCambios(
-        CancellationToken cancellationToken = default)
+    public async Task GuardarCambios()
     {
-        await _context.SaveChangesAsync(cancellationToken);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<Pelicula>> ObtenerPeliculasEliminadas()
+    {
+        return await _context.Peliculas
+            .AsNoTracking()
+            .Where(p => p.IsDeleted)
+            .ToListAsync();
     }
 }
